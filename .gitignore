@@ -41,7 +41,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
-doc/
+doc/C++/large_doc
 .vscode/
 .Python
 build/
