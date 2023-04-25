@@ -1,3 +1,181 @@
 # 05EssentialC++笔记
 
 > 中文第六版-侯捷译
+>
+> [C++ 设计者 Bjarne Stroustrup 的网址](https://www.stroustrup.com/index.html)
+
+## 1.基础
+
+### 1.函数的组成
+
+- 返回值类型（return type）
+- 函数名称
+- 参数列表（parameter list）
+- 函数体（function body）
+
+### 2.class 类的定义
+
+- 头文件 (header file): 声明 class 提供的各种操作行为
+- 程序代码文件 (program text): 操作行为的具体实现内容
+
+`cout` (see out)：将信息写入到用户终端，`cout << user_name;`
+
+`cin` (see in)：读取用户终端上的内容，`cin >> user_name;`
+
+### 3.字符常量 (character literal)
+
+如 `\n` 之类的，也称为转义字符 (escape sequence)，可分为：
+
+- 可打印字符；
+- 不可打印字符，如 `'\t'`
+
+### 4.初始化方法
+
+对象具有多个初值时的初始化方法：
+
+构造函数法 (constructor syntax)，如标准库中的复数 (complex number) 类，初始化需要两个初始值，**即为多值初始化。**
+
+### 5.数据类型
+
+C++ 支持的 3 种浮点数类型：
+
+- float 表示的单精度 (single precision)
+- double 表示的双精度 (double precision)
+- long double 表示的长双精度 (extended precision)
+
+常量关键字的使用：`const int max_dims`
+
+### 6.算数运算符 (Arithmetic Operator)
+
+支持条件运算符语句：
+
+```c++
+nums % counts ?  '真' : '假';
+```
+
+**递增 (increment) 运算符和递减运算符 (decrement)**
+
+```c++
+// 前置形式,prefix
+// 先递减or递增,之后再使用
+// 输出结果为 1
+    int tries = 0;
+    int tries_again = 0;
+    cout << "try it！"
+         << ++tries <<'\n';
+
+// 先使用在递增  
+    cout << "try it again！"
+         << tries_again++ << '\n';
+```
+
+### 7.Array和Vector
+
+```c++
+//Array形式
+const int seq_size = 18;
+int pell_seq[seq_size];
+
+//vector形式
+#include <vector>
+vector<int> pell_seq(seq_size);
+```
+
+**初始化形式**
+
+```c++
+//Array
+int array_init[] = {
+    1,2,3,4,
+    5,6,7,8
+};
+//Vector 形式,较为冗长
+vector<int> vector_init(seq_size0);
+vector_init[0] = 1;
+//或者利用初始化后的数组来对齐初始化
+vector<int> vector_init(seq_size0);
+```
+
+`vector` 知道自己的大小，可以用 `vector_demo.size()` 访问。
+
+### 8.指针
+
+#### 0.书写形式
+
+[关于 C 和 C++ 中 `int *p` 和 `int* p` 的区别](https://www.stroustrup.com/bstechfaq.htm)
+
+“`int *p`”和“`int* p`”之间并无对错之分，只有风格之争。
+
+如果让计算机来读，两者完全等同，都是正确的。我们还可以声明成 `int * p `或 `int*p`。编译器不会理会你是不是在那里多放了几个空格。
+
+但是对于编码人员，C 程序员通常会写 `int *p`，更为强调语法，即  `*p `是一个 `int`。
+
+而 C++ 程序员通常会写 `int* p`，即 p 是一个指向 `int` 的指针，p 的类型是 `int*`，更强调类型。
+
+#### 1.简单形式
+
+如下：p 是一个指针**变量**，存储着 (一个 int 类型变量的) **地址**。
+
+简单地说，指针就是一个**存储地址的变量**，是变量就有地址，`&p` 即为指针 p 的地址。
+
+```c++
+int* p=&a;
+```
+
+`*` 的二象性：
+
+- **声明中的 `*` 只表示这是一个指针类型；**
+- **而在其他位置(非声明位置)的 `*` 则表示取值的含义**
+
+#### 2.高级形式
+
+**指针的数组**
+
+指针构成的数组。p 是数组名，有 3 个元素，元素的值都是地址。
+
+```c++
+int* p[3]
+```
+
+**数组的指针**
+
+指向一维数组的指针，该一维数组是长度为 3 的整型数组
+
+```c++
+int (*p)[3]
+```
+
+**返回值为指针的函数**
+
+函数的返回值是=>指向整型数据的指针。
+
+```c++
+int* demo_fun();
+```
+
+**函数的指针**
+
+指向函数的指针，函数的返回值类型为 `int`
+
+先是一个指针，然后再指向函数。
+
+```c++
+int (*fun_p)();
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
