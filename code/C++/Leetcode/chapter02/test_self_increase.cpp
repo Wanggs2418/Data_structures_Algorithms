@@ -14,6 +14,10 @@ int main() {
 // 输出结果为 1
     int tries = 0;
     int tries_again = 0;
+    int demo = INT32_MAX;
+    cout << "INT32_MAX："
+         << demo <<'\n';
+
     cout << "try it！"
          << ++tries <<'\n';
 
