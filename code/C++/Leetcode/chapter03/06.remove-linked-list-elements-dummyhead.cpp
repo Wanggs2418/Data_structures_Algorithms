@@ -20,6 +20,7 @@ public:
         ListNode* dummyHead = new ListNode(0); //设置虚拟头结点
         dummyHead->next = head;
         ListNode* cur = dummyHead;
+        
         while(cur->next != NULL) { 
             if(cur->next->val == val) {
                 ListNode* tmp = cur->next;
